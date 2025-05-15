@@ -1,7 +1,8 @@
 "use client";
 import { motion, useInView } from "framer-motion";
-import { FaSolarPanel, FaWind, FaIndustry, FaChartPie } from 'react-icons/fa';
-import { useRef, useState } from 'react';
+import { FaSolarPanel, FaChartPie } from 'react-icons/fa';
+import { GiWaterMill, GiWindmill } from "react-icons/gi";
+import { useRef } from 'react';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -21,7 +22,7 @@ const FeatureCard = ({ icon, title, delay }) => (
     <div className="text-5xl text-[#FFAB5B] mb-4">
       {icon}
     </div>
-    <h3 className="text-[#003092] text-xl font-semibold mt-4">{title}</h3>
+    <h3 className="text-[#d3dcee] text-xl font-semibold mt-4">{title}</h3>
   </motion.div>
 );
 
@@ -79,9 +80,9 @@ export default function Home() {
 
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <FeatureCard icon={<FaSolarPanel className="text-5xl text-[#FFAB5B]" />} title="Solar Energy Prediction" delay={0.6} />
-            <FeatureCard icon={<FaWind className="text-5xl text-[#FFAB5B]" />} title="Wind Energy Prediction" delay={0.8} />
-            <FeatureCard icon={<FaIndustry className="text-5xl text-[#FFAB5B] mb-4" />} title="Fossil Fuel Prediction" delay={1} />
+            <FeatureCard icon={<FaSolarPanel className="text-5xl text-[#FFAB5B] mb-4" />} title="Solar Energy Prediction" delay={0.6} />
+            <FeatureCard icon={<GiWindmill className="text-5xl text-[#FFAB5B] mb-4" />} title="Wind Energy Prediction" delay={0.8} />
+            <FeatureCard icon={<GiWaterMill className="text-5xl text-[#FFAB5B] mb-4" />} title="Hydro Energy Prediction" delay={1} />
             <FeatureCard icon={<FaChartPie className="text-5xl text-[#FFAB5B] mb-4" />} title="Energy Distribution" delay={1.2} />
           </div>
           <motion.button
@@ -100,53 +101,63 @@ export default function Home() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 px-4 md:px-6" style={{ backgroundColor: "#003092" }}>
-        <div className="max-w-6xl mx-auto">
-          <motion.h2
-            className="text-4xl font-bold text-center mb-16"
-            style={{ color: "#FFF2DB" }}
-            initial="hidden"
-            whileInView="visible"
-            variants={fadeIn}
-          >
-            Why Choose Shannon?
-          </motion.h2>
+     <section className="pt-12 pb-16 px-4 md:px-6" style={{ backgroundColor: "#003092" }}>
+  <div className="max-w-6xl mx-auto">
+    <motion.div
+      className="mb-12"
+      initial="hidden"
+      whileInView="visible"
+      variants={fadeIn}
+    >
+      <h2
+  className="text-4xl font-bold text-center"
+  style={{ color: "#FFF2DB" }}
+>
+  Why Choose Shannon?
+</h2>
+    </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Forecasting of Wind Power Generation",
-                description: "Forecasting of wind power generation in a area using previous data of that area"
-              },
-              {
-                title: "Forecasting of Solar Power Generation",
-                description: "Forecasting of wind power generation in a area using previous data of that area"
-              },
-              {
-                title: "Detailed Graph for each and Pie Chart",
-                description: "You will be given a detailed graph on time v/s energy production"
-              }
-            ].map((benefit, index) => (
-              <motion.div
-                key={index}
-                className="p-6 rounded-lg"
-                style={{ backgroundColor: "#00879E" }}
-                initial="hidden"
-                whileInView="visible"
-                variants={fadeIn}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-              >
-                <h3 className="text-2xl font-semibold mb-4 text-white text-center">
-                  {benefit.title}
-                </h3>
-                <p className="text-white opacity-90 text-center">
-                  {benefit.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+    <div className="grid md:grid-cols-4 gap-6">
+      {[
+        {
+          title: "Forecasting of Solar Power Generation",
+          description: "Forecasting of wind power generation in a area using previous data of that area"
+        },
+        {
+          title: "Forecasting of Wind Power Generation",
+          description: "Forecasting of wind power generation in a area using previous data of that area"
+        },
+        {
+          title: "Forecasting of Hydro Power Generation",
+          description: "Forecasting of hydro power generation in a area using previous data of that area"
+        },
+        {
+          title: "Detailed Graph for each and Pie Chart",
+          description: "You will be given a detailed graph on time v/s energy production"
+        }
+      ].map((benefit, index) => (
+        <motion.div
+          key={index}
+          className="p-6 rounded-lg"
+          style={{ backgroundColor: "#00879E" }}
+          initial="hidden"
+          whileInView="visible"
+          variants={fadeIn}
+          transition={{ duration: 0.5, delay: index * 0.2 }}
+        >
+          <h4 className="text-lg font-semibold mb-4 text-white text-center">
+            {benefit.title}
+          </h4>
+          <p className="text-white opacity-90 text-center">
+            {benefit.description}
+          </p>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
     </div>
   );
 }
