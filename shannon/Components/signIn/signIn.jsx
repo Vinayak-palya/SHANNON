@@ -90,6 +90,7 @@ const SignInModal = ({ isOpen, onClose, onBack }) => {
             <div className="flex flex-col gap-y-4">
               <button
                 onClick={() => handleSignIn("google")}
+                style={{color: "white"}}
                 className="w-full bg-[#001092] text-white py-3 px-4 rounded-md font-semibold hover:bg-[#00879E] transition-colors duration-300 flex items-center justify-center shadow-md cursor-pointer"
               >
                 <img
@@ -102,6 +103,7 @@ const SignInModal = ({ isOpen, onClose, onBack }) => {
 
               <button
                 onClick={() => handleSignIn("github")}
+                style={{color: "white"}}
                 className="w-full bg-[#333333] text-white py-3 px-4 rounded-md font-semibold hover:bg-[#555555] transition-colors duration-300 flex items-center justify-center shadow-md cursor-pointer"
               >
                 <svg
