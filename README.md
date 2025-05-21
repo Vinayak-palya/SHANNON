@@ -23,7 +23,7 @@ A Next.js based web application for predicting and visualizing renewable energy 
   - Framer Motion
 - **Maps**: MapboxGL
 - **Charts**: Recharts
-- **Authentication**: Firebase
+- **Authentication**: NextAuth
 - **API Integration**: Axios
 - **AI Integration**: Groq SDK
 
